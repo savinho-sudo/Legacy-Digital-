@@ -1,0 +1,1261 @@
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyBST5_UzWs7q-Tr4mrOpC2q7_mt84tEraU",
+    authDomain: "vexo-digital.firebaseapp.com",
+    projectId: "vexo-digital",
+    storageBucket: "vexo-digital.firebasestorage.app",
+    messagingSenderId: "856650082009",
+    appId: "1:856650082009:web:1e990ba82a312e80f540c8"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+</script> Sv legacy
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <meta name="description"
+        content="Produtos e treinamento para quem quer começar a vender online.">
+
+  <title>Comece a Vender</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #080808;
+      color: #fff;
+      line-height: 1.5;
+    }
+
+    /* ===== HEADER ===== */
+
+    header {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30px 20px;
+      background:
+        radial-gradient(circle at top, #24134d 0%, #080808 55%);
+    }
+
+    .hero {
+      max-width: 850px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 50px;
+      background: #7c3aed;
+      color: #fff;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      font-size: clamp(40px, 7vw, 78px);
+      line-height: 1.05;
+      margin-bottom: 25px;
+    }
+
+    h1 span {
+      color: #9b6cff;
+    }
+
+    .hero p {
+      color: #b7b7b7;
+      font-size: 19px;
+      max-width: 650px;
+      margin: auto;
+      margin-bottom: 35px;
+    }
+
+    .btn-principal {
+      display: inline-block;
+      padding: 17px 30px;
+      background: #7c3aed;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: bold;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    .btn-principal:hover {
+      transform: translateY(-3px);
+      background: #8b5cf6;
+      box-shadow: 0 10px 30px rgba(124, 58, 237, .35);
+    }
+
+    /* ===== CONTAINER ===== */
+
+    .container {
+      width: 92%;
+      max-width: 1150px;
+      margin: auto;
+    }
+
+    /* ===== OFERTAS ===== */
+
+    .ofertas {
+      padding: 90px 0;
+    }
+
+    .titulo-section {
+      text-align: center;
+      max-width: 700px;
+      margin: auto;
+      margin-bottom: 50px;
+    }
+
+    .titulo-section small {
+      color: #9b6cff;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .titulo-section h2 {
+      font-size: 40px;
+      margin: 10px 0;
+    }
+
+    .titulo-section p {
+      color: #999;
+      font-size: 17px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      position: relative;
+      background: linear-gradient(145deg, #171717, #0e0e0e);
+      border: 1px solid #292929;
+      border-radius: 22px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      min-height: 500px;
+      transition: .3s;
+    }
+
+    .card:hover {
+      transform: translateY(-7px);
+      border-color: #7c3aed;
+    }
+
+    .card.destaque {
+      border: 2px solid #7c3aed;
+      box-shadow: 0 0 40px rgba(124, 58, 237, .15);
+    }
+
+    .recomendado {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #7c3aed;
+      padding: 7px 16px;
+      border-radius: 50px;
+      font-size: 11px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .numero {
+      color: #9b6cff;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      font-size: 25px;
+      margin-bottom: 15px;
+    }
+
+    .preco {
+      font-size: 44px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .preco small {
+      font-size: 17px;
+    }
+
+    .card p {
+      color: #a5a5a5;
+      margin-bottom: 25px;
+    }
+
+    .beneficios {
+      list-style: none;
+      margin-bottom: 30px;
+    }
+
+    .beneficios li {
+      color: #ddd;
+      margin-bottom: 12px;
+    }
+
+    .beneficios li::before {
+      content: "✓";
+      color: #9b6cff;
+      font-weight: bold;
+      margin-right: 9px;
+    }
+
+    .btn-compra {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 16px;
+      background: #7c3aed;
+      color: white;
+      text-decoration: none;
+      border-radius: 11px;
+      font-weight: bold;
+      margin-top: auto;
+      transition: .3s;
+    }
+
+    .btn-compra:hover {
+      background: #8b5cf6;
+      transform: translateY(-2px);
+    }
+
+    .observacao {
+      font-size: 11px !important;
+      color: #666 !important;
+      text-align: center;
+      margin-top: 12px;
+      margin-bottom: 0 !important;
+    }
+
+    /* ===== BENEFÍCIO ===== */
+
+    .beneficio-section {
+      padding: 90px 0;
+      background: #0d0d0d;
+    }
+
+    .beneficio-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .beneficio-content h2 {
+      font-size: 42px;
+      margin-bottom: 20px;
+    }
+
+    .beneficio-content h2 span {
+      color: #9b6cff;
+    }
+
+    .beneficio-content p {
+      color: #999;
+      font-size: 17px;
+      margin-bottom: 20px;
+    }
+
+    .lista {
+      list-style: none;
+    }
+
+    .lista li {
+      padding: 13px 0;
+      border-bottom: 1px solid #242424;
+      color: #ddd;
+    }
+
+    .lista li::before {
+      content: "→";
+      color: #9b6cff;
+      margin-right: 10px;
+    }
+
+    .caixa {
+      background: linear-gradient(145deg, #181222, #100c18);
+      border: 1px solid #342452;
+      padding: 40px;
+      border-radius: 25px;
+      text-align: center;
+    }
+
+    .caixa .icone {
+      font-size: 55px;
+      margin-bottom: 15px;
+    }
+
+    .caixa h3 {
+      font-size: 25px;
+      margin-bottom: 12px;
+    }
+
+    /* ===== CURSO ===== */
+
+    .curso {
+      padding: 100px 0;
+      text-align: center;
+    }
+
+    .curso-box {
+      max-width: 850px;
+      margin: auto;
+      padding: 55px 35px;
+      border-radius: 25px;
+      background:
+        linear-gradient(145deg, #1d1234, #0e0b15);
+      border: 1px solid #55318f;
+    }
+
+    .curso-box h2 {
+      font-size: 45px;
+      margin-bottom: 18px;
+    }
+
+    .curso-box h2 span {
+      color: #a47cff;
+    }
+
+    .curso-box p {
+      color: #aaa;
+      max-width: 650px;
+      margin: 0 auto 30px;
+      font-size: 17px;
+    }
+
+    /* ===== FAQ ===== */
+
+    .faq {
+      padding: 80px 0;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .faq h2 {
+      text-align: center;
+      font-size: 38px;
+      margin-bottom: 35px;
+    }
+
+    details {
+      background: #141414;
+      border: 1px solid #292929;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 12px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    details p {
+      color: #999;
+      margin-top: 15px;
+    }
+
+    /* ===== FOOTER ===== */
+
+    footer {
+      border-top: 1px solid #222;
+      padding: 35px 20px;
+      text-align: center;
+      color: #666;
+      font-size: 13px;
+    }
+
+    /* ===== RESPONSIVO ===== */
+
+    @media (max-width: 900px) {
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        min-height: auto;
+      }
+
+      .beneficio-content {
+        grid-template-columns: 1fr;
+      }
+
+      .beneficio-content h2 {
+        font-size: 34px;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      h1 {
+        font-size: 43px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .titulo-section h2 {
+        font-size: 30px;
+      }
+
+      .curso-box h2 {
+        font-size: 32px;
+      }
+
+      .preco {
+        font-size: 38px;
+      }
+    }
+  </style>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Legacy Digital — Seu próximo nível começa agora</title>
+
+  <meta name="description" content="Produtos e estratégias para começar e evoluir no digital. Conheça a Legacy Digital.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #080808;
+      color: #f5f5f5;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .container {
+      width: 92%;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      padding: 70px 0;
+      background:
+        radial-gradient(circle at top, rgba(170,130,50,.16), transparent 45%),
+        #080808;
+    }
+
+    .badge {
+      display: inline-block;
+      border: 1px solid #80662f;
+      color: #d6b36a;
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-size: 13px;
+      letter-spacing: 1px;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 8vw, 78px);
+      line-height: 1.05;
+      margin-bottom: 25px;
+      font-weight: 800;
+    }
+
+    .gold {
+      color: #d6b36a;
+    }
+
+    .hero p {
+      max-width: 700px;
+      margin: auto;
+      color: #bdbdbd;
+      font-size: 18px;
+    }
+
+    .hero-button {
+      display: inline-block;
+      margin-top: 35px;
+      background: #d6b36a;
+      color: #080808;
+      padding: 16px 30px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: .3s;
+    }
+
+    .hero-button:hover {
+      transform: translateY(-3px);
+      background: #efd18d;
+    }
+
+    /* SECTION */
+
+    section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: #999;
+      max-width: 650px;
+      margin: 0 auto 45px;
+    }
+
+    /* PRODUCTS */
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .product {
+      background: #111;
+      border: 1px solid #292929;
+      border-radius: 14px;
+      padding: 30px 24px;
+      display: flex;
+      flex-direction: column;
+      transition: .3s;
+    }
+
+    .product:hover {
+      transform: translateY(-6px);
+      border-color: #80662f;
+    }
+
+    .product-number {
+      color: #80662f;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 12px;
+      letter-spacing: 1px;
+    }
+
+    .product h3 {
+      font-size: 23px;
+      margin-bottom: 12px;
+    }
+
+    .product p {
+      color: #aaa;
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+
+    .price {
+      font-size: 32px;
+      color: #d6b36a;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .product-button {
+      display: block;
+      text-align: center;
+      background: #d6b36a;
+      color: #080808;
+      padding: 14px;
+      border-radius: 7px;
+      font-weight: bold;
+      margin-top: auto;
+      transition: .3s;
+    }
+
+    .product-button:hover {
+      background: #efd18d;
+    }
+
+    /* WHY */
+
+    .why {
+      background: #0d0d0d;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .why-card {
+      padding: 28px;
+      background: #111;
+      border: 1px solid #252525;
+      border-radius: 12px;
+    }
+
+    .why-card span {
+      font-size: 28px;
+      display: block;
+      margin-bottom: 15px;
+    }
+
+    .why-card h3 {
+      margin-bottom: 10px;
+    }
+
+    .why-card p {
+      color: #999;
+      font-size: 15px;
+    }
+
+    /* HOW */
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .step {
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    .step-number {
+      width: 55px;
+      height: 55px;
+      margin: 0 auto 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      border: 1px solid #80662f;
+      color: #d6b36a;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .step p {
+      color: #999;
+      margin-top: 8px;
+    }
+
+    /* FAQ */
+
+    .faq {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    details {
+      background: #111;
+      border: 1px solid #282828;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      padding: 18px 20px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    details p {
+      color: #999;
+      margin-top: 15px;
+    }
+
+    /* FINAL CTA */
+
+    .final-cta {
+      text-align: center;
+      background:
+        radial-gradient(circle, rgba(170,130,50,.12), transparent 55%),
+        #080808;
+    }
+
+    .final-cta h2 {
+      font-size: clamp(32px, 6vw, 52px);
+      margin-bottom: 15px;
+    }
+
+    .final-cta p {
+      color: #999;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .final-button {
+      display: block;
+      width: 100%;
+      max-width: 320px;
+      margin: 30px auto 0;
+      padding: 16px;
+      background: #d6b36a;
+      color: #080808;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: .3s;
+    }
+
+    .final-button:hover {
+      background: #efd18d;
+      transform: translateY(-3px);
+    }
+
+    .course-button {
+      display: block;
+      width: 100%;
+      max-width: 320px;
+      margin: 14px auto 0;
+      padding: 15px;
+      background: transparent;
+      color: #d6b36a;
+      border: 1px solid #80662f;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: .3s;
+    }
+
+    .course-button:hover {
+      background: #151515;
+      border-color: #d6b36a;
+      transform: translateY(-3px);
+    }
+
+    .disclaimer {
+      font-size: 12px;
+      color: #666;
+      margin-top: 25px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid #202020;
+      padding: 30px 0;
+      text-align: center;
+      color: #666;
+      font-size: 13px;
+    }
+
+    footer strong {
+      color: #d6b36a;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+
+      .products,
+      .why-grid,
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: 80vh;
+        padding: 60px 0;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      .section-title {
+        font-size: 30px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .product {
+        padding: 25px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO -->
+
+  <header class="hero">
+    <div class="container">
+
+      <div class="badge">
+        LEGACY DIGITAL
+      </div>
+
+      <h1>
+        Seu próximo nível<br>
+        <span class="gold">começa agora.</span>
+      </h1>
+
+      <p>
+        Materiais, estratégias e conteúdos práticos para quem quer
+        começar e evoluir no digital de forma simples e organizada.
+      </p>
+
+      <a href="#produtos" class="hero-button">
+        CONHECER OS PRODUTOS
+      </a>
+
+    </div>
+  </header>
+
+
+  <!-- PRODUTOS -->
+
+  <section id="produtos">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        Escolha seu próximo passo
+      </h2>
+
+      <p class="section-subtitle">
+        Comece pelo básico ou avance para uma estratégia mais completa.
+        Você escolhe o nível que faz sentido para você.
+      </p>
+
+
+      <div class="products">
+
+
+        <!-- PRODUTO 1 -->
+
+        <div class="product">
+
+          <div class="product-number">
+            PRODUTO 01
+          </div>
+
+          <h3>
+            Guia Primeiros Passos
+          </h3>
+
+          <p>
+            Comece do zero no digital e entenda os primeiros passos
+            para estruturar sua presença online.
+          </p>
+
+          <div class="price">
+            R$ 9,90
+          </div>
+
+          <a
+            href="https://pay.cakto.com.br/ps695xk_1144506"
+            class="product-button"
+            target="_blank">
+            ACESSAR AGORA
+          </a>
+
+        </div>
+
+
+        <!-- PRODUTO 2 -->
+
+        <div class="product">
+
+          <div class="product-number">
+            PRODUTO 02
+          </div>
+
+          <h3>
+            KIT LEGACY
+          </h3>
+
+          <p>
+            15 materiais digitais para criação de conteúdo,
+            organização, divulgação e estruturação.
+          </p>
+
+          <div class="price">
+            R$ 29,90
+          </div>
+
+          <a
+            href="https://pay.cakto.com.br/dodyyio_1144553"
+            class="product-button"
+            target="_blank">
+            ACESSAR O KIT
+          </a>
+
+        </div>
+
+
+        <!-- PRODUTO 3 -->
+
+        <div class="product">
+
+          <div class="product-number">
+            PRODUTO 03
+          </div>
+
+          <h3>
+            LEGACY MÉTODO
+          </h3>
+
+          <p>
+            Curso em vídeo com uma estratégia passo a passo
+            para entender e executar uma estrutura digital.
+          </p>
+
+          <div class="price">
+            R$ 49,90
+          </div>
+
+          <a
+            href="https://pay.cakto.com.br/6mutk5b_1144574"
+            class="product-button"
+            target="_blank">
+            ACESSAR O CURSO
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- POR QUE LEGACY -->
+
+  <section class="why">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        Por que Legacy Digital?
+      </h2>
+
+      <p class="section-subtitle">
+        Conteúdo direto ao ponto para transformar informação em execução.
+      </p>
+
+
+      <div class="why-grid">
+
+        <div class="why-card">
+
+          <span>🚀</span>
+
+          <h3>
+            Prático
+          </h3>
+
+          <p>
+            Materiais organizados para você entender
+            o que fazer e começar a colocar em prática.
+          </p>
+
+        </div>
+
+
+        <div class="why-card">
+
+          <span>📱</span>
+
+          <h3>
+            Digital
+          </h3>
+
+          <p>
+            Conteúdos pensados para Instagram,
+            TikTok, WhatsApp e produtos digitais.
+          </p>
+
+        </div>
+
+
+        <div class="why-card">
+
+          <span>🎯</span>
+
+          <h3>
+            Direto ao ponto
+          </h3>
+
+          <p>
+            Sem excesso de teoria. A proposta é
+            facilitar sua organização e execução.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- COMO FUNCIONA -->
+
+  <section>
+
+    <div class="container">
+
+      <h2 class="section-title">
+        Como funciona?
+      </h2>
+
+      <p class="section-subtitle">
+        Você escolhe o produto, acessa o material e começa a aplicar.
+      </p>
+
+
+      <div class="steps">
+
+        <div class="step">
+
+          <div class="step-number">
+            01
+          </div>
+
+          <h3>
+            Escolha
+          </h3>
+
+          <p>
+            Escolha o produto que combina
+            com o seu momento.
+          </p>
+
+        </div>
+
+
+        <div class="step">
+
+          <div class="step-number">
+            02
+          </div>
+
+          <h3>
+            Acesse
+          </h3>
+
+          <p>
+            Faça sua compra e receba
+            acesso ao conteúdo.
+          </p>
+
+        </div>
+
+
+        <div class="step">
+
+          <div class="step-number">
+            03
+          </div>
+
+          <h3>
+            Aplique
+          </h3>
+
+          <p>
+            Use os materiais e coloque
+            as estratégias em prática.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FAQ -->
+
+  <section class="why">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        Perguntas frequentes
+      </h2>
+
+
+      <div class="faq">
+
+        <details>
+
+          <summary>
+            Como recebo o produto?
+          </summary>
+
+          <p>
+            Após a confirmação do pagamento, o acesso é
+            disponibilizado de acordo com o produto adquirido.
+          </p>
+
+        </details>
+
+
+        <details>
+
+          <summary>
+            Preciso ter experiência?
+          </summary>
+
+          <p>
+            Não. Os materiais foram pensados também para
+            quem está começando no digital.
+          </p>
+
+        </details>
+
+
+        <details>
+
+          <summary>
+            O curso é em vídeo?
+          </summary>
+
+          <p>
+            Sim. O LEGACY MÉTODO possui aulas em vídeo
+            com explicações e demonstrações passo a passo.
+          </p>
+
+        </details>
+
+
+        <details>
+
+          <summary>
+            Os produtos garantem resultados financeiros?
+          </summary>
+
+          <p>
+            Não. Os materiais são educativos e não garantem
+            resultados financeiros. Os resultados dependem
+            da aplicação, consistência e de diversos fatores.
+          </p>
+
+        </details>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CTA FINAL -->
+
+  <section class="final-cta">
+
+    <div class="container">
+
+      <h2>
+        Seu próximo nível<br>
+        <span class="gold">começa agora.</span>
+      </h2>
+
+      <p>
+        Escolha seu material e dê o próximo passo
+        na sua jornada digital.
+      </p>
+
+
+      <!-- KIT -->
+
+      <a
+        href="https://pay.cakto.com.br/dodyyio_1144553"
+        class="final-button"
+        target="_blank">
+        ACESSAR O KIT LEGACY
+      </a>
+
+
+      <!-- CURSO -->
+
+      <a
+        href="https://pay.cakto.com.br/6mutk5b_1144574"
+        class="course-button"
+        target="_blank">
+        ACESSAR O CURSO LEGACY
+      </a>
+
+
+      <p class="disclaimer">
+        Material educativo. Não há promessa ou garantia
+        de resultados financeiros.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="container">
+
+      © 2026 <strong>Legacy Digital</strong>.
+      Todos os direitos reservados.
+
+    </div>
+
+  </footer>
+
+
+</body>
+</html>  
